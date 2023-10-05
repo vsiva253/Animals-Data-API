@@ -169,14 +169,26 @@ const animals = [
         'image_url': 'https://a-z-animals.com/media/2022/09/iStock-1267859318-1536x1024.jpg'
     }
 ];
-
-// Define a route to get all animals
 app.get('/animals', (req, res) => {
-  res.json(animals);
-});
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+    res.json(animals);
+  });
+  
+  // Define a route to get animals with start and end points
+  app.get('/animals/:start/:end', (req, res) => {
+    const { start, end } = req.params;
+    const startIndex = parseInt(start);
+    const endIndex = parseInt(end);
+  
+    if (isNaN(startIndex) || isNaN(endIndex)) {
+      return res.status(400).json({ error: 'Invalid parameters' });
+    }
+  
+    const slicedAnimals = animals.slice(startIndex, endIndex + 1);
+    res.json(slicedAnimals);
+  });
+  
+  const port = process.env.PORT || 3000;
+  
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
