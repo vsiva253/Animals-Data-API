@@ -167,8 +167,75 @@ const animals = [
         'name': 'Moose',
         'type': 'deer',
         'image_url': 'https://a-z-animals.com/media/2022/09/iStock-1267859318-1536x1024.jpg'
-    }
+    },
+    {
+        'name': 'Coelophysis',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Coelophysis.png'
+    },
+    {
+        'name': 'Gallimimus',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Gallimimus.png'
+    },
+    {
+        'name': 'Diplodocus',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Diplodocus.png'
+    },{
+        'name': 'Dilophosaurus',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Dilophosaurus.png'
+    },{
+        'name': 'Spinosaurus',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Spinosaurus.png'
+    },{
+        'name': 'Apatosaurus',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Apatosaurus.png'
+    },{
+        'name': 'Tyrannosaurus rex',
+        'type': 'dinosaurs',
+        'image_url': 'https://www.morereptiles.com/wp-content/uploads/2021/10/Tyrannosaurus-rex.png'
+    },
 ];
+
+const dogs = animals.filter(animal => animal.type === 'dog');
+
+app.get('/animals/type/dogs', (req, res) => {
+    res.json(dogs);
+  });
+
+  const lions = animals.filter(animal => animal.type === 'lion');
+
+app.get('/animals/type/lions', (req, res) => {
+    res.json(lions);
+  });
+
+  const deers = animals.filter(animal => animal.type === 'deer');
+
+  app.get('/animals/type/deers', (req, res) => {
+      res.json(deers);
+    });
+
+    const bears = animals.filter(animal => animal.type === 'bear');
+
+    app.get('/animals/type/bears', (req, res) => {
+        res.json(bears);
+      });
+      const tigers = animals.filter(animal => animal.type === 'tiger');
+
+      app.get('/animals/type/tigers', (req, res) => {
+          res.json(tigers);
+        });
+
+        const dinosaurs = animals.filter(animal => animal.type === 'dinosaurs');
+
+        app.get('/animals/type/dinosaurs', (req, res) => {
+            res.json(dinosaurs);
+          });
+
 app.get('/animals', (req, res) => {
     res.json(animals);
   });
